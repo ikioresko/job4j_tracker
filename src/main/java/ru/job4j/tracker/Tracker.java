@@ -47,8 +47,8 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
-        items[indexOf(id)].setName(item.getName());
-        items[indexOf(id)].setId(id);
-        return items[indexOf(id)].getName().equals(item.getName());
+        item.setId(id);
+        items[indexOf(id)] = item;
+        return items[indexOf(id)].equals(item);
     }
 }

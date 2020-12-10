@@ -38,4 +38,17 @@ public class TrackerTest {
         assertThat(items[0].getName(), is(tracker.findByName("test")[0].getName()));
         assertThat(items[0].getName(), is(tracker.findByName("test")[1].getName()));
     }
+
+    @Test
+    public void whenReplace() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        int id = bug.getId();
+        Item bugWithDesc = new Item();
+        bugWithDesc.setName("Bug with description");
+        tracker.replace(id, bugWithDesc);
+        assertThat(tracker.findById(id).getName(), is("Bug with description"));
+    }
 }
