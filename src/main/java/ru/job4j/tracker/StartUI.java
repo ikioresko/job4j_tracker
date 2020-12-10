@@ -63,7 +63,7 @@ public class StartUI {
                 if (item == null) {
                     System.out.println("Заявка с таким id не найдена");
                 } else {
-                    System.out.println("Item name: " + item.getName());
+                    System.out.println("Item name: " + item);
                 }
             } else if (select == 5) {
                 System.out.println("===  Find Items by name ====");
