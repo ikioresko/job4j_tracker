@@ -31,18 +31,14 @@ public class StartUI {
                 System.out.println("===  Edit Item ====");
                 System.out.print("Enter id: ");
                 int id = Integer.valueOf(scanner.nextLine());
-                Item item = tracker.findById(id);
-                if (item == null) {
-                    System.out.println("Заявка с таким id не найдена");
+                System.out.print("Enter new name: ");
+                String name = scanner.nextLine();
+                Item item = new Item();
+                item.setName(name);
+                if (tracker.replace(id, item)) {
+                    System.out.println("Completed");
                 } else {
-                    System.out.print("Enter new name: ");
-                    String name = scanner.nextLine();
-                    item.setName(name);
-                    if (tracker.replace(id, item)) {
-                        System.out.println("Completed");
-                    } else {
-                        System.out.println("Error");
-                    }
+                    System.out.println("Error");
                 }
             } else if (select == 3) {
                 System.out.println("===  Delete Item ====");
