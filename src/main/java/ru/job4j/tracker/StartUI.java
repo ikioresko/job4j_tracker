@@ -46,7 +46,7 @@ public class StartUI {
         }
     }
 
-    public static void FindById(Input input, Tracker tracker) {
+    public static void findById(Input input, Tracker tracker) {
         System.out.println("===  Find Item by Id ====");
         int id = input.askInt("Enter id: ");
         Item item = tracker.findById(id);
@@ -57,7 +57,7 @@ public class StartUI {
         }
     }
 
-    public static void FindByName(Input input, Tracker tracker) {
+    public static void findByName(Input input, Tracker tracker) {
         System.out.println("===  Find Items by name ====");
         String name = input.askStr("Enter name: ");
         Item [] items = tracker.findByName(name);
@@ -85,9 +85,9 @@ public class StartUI {
             } else if (select == 3) {
                 StartUI.deleteItem(input, tracker);
             } else if (select == 4) {
-                StartUI.FindById(input, tracker);
+                StartUI.findById(input, tracker);
             } else if (select == 5) {
-             StartUI.FindByName(input, tracker);
+             StartUI.findByName(input, tracker);
             }
              else if (select == 6) {
                 run = false;
