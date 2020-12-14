@@ -6,22 +6,18 @@ public class StartUI {
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            this.showMenu();
+            this.showMenu(actions);
             int select = input.askInt("Select: ");
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
     }
 
-    private void showMenu() {
-        System.out.println("Menu."
-                + System.lineSeparator() +"0. Add new Item"
-                        + System.lineSeparator() + "1. Show all items"
-                        + System.lineSeparator() + "2. Edit item"
-                        + System.lineSeparator() + "3. Delete item"
-                        + System.lineSeparator() + "4. Find item by Id"
-                        + System.lineSeparator() + "5. Find items by name"
-                + System.lineSeparator() + "6. Exit Program");
+    private void showMenu(UserAction[] actions) {
+        System.out.println("Menu.");
+        for (int i = 0; i < actions.length; i++) {
+            System.out.println(i + ". " + actions[i].name());
+        }
     }
 
     public static void main(String[] args) {
