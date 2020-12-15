@@ -7,6 +7,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
+    private static final String LN = System.lineSeparator();
+
     @Test
     public void whenCreateItem() {
         Output out = new StubOutput();
@@ -114,8 +116,7 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Exit" + System.lineSeparator()
-        ));
+        assertThat(out.toString(), is("Menu." + LN + "0. Exit" + LN));
     }
 
     @Test
@@ -127,12 +128,9 @@ public class StartUITest {
         );
         UserAction[] actions = {new ShowAllAction(out), new ExitAction(out)};
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Show all Item"
-                + System.lineSeparator() + "1. Exit" + System.lineSeparator() + "=== Show all Item ===="
-                + System.lineSeparator() + "Заявок не найдено" + System.lineSeparator() + "Menu."
-                + System.lineSeparator() + "0. Show all Item" + System.lineSeparator() + "1. Exit"
-                + System.lineSeparator()
-        ));
+        assertThat(out.toString(), is("Menu." + LN + "0. Show all Item"
+                + LN + "1. Exit" + LN + "=== Show all Item ====" + LN + "Заявок не найдено" + LN + "Menu."
+                + LN + "0. Show all Item" + LN + "1. Exit" + LN));
     }
 
     @Test
@@ -148,12 +146,9 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Find Items by name"
-                + System.lineSeparator() + "1. Exit" + System.lineSeparator() + "=== Find Items by name ===="
-                + System.lineSeparator() + "Заявки с таким именем не найдены" + System.lineSeparator() + "Menu."
-                + System.lineSeparator() + "0. Find Items by name" + System.lineSeparator() + "1. Exit"
-                + System.lineSeparator()
-        ));
+        assertThat(out.toString(), is("Menu." + LN + "0. Find Items by name"
+                + LN + "1. Exit" + LN + "=== Find Items by name ====" + LN  + "Заявки с таким именем не найдены"
+                + LN + "Menu." + LN + "0. Find Items by name" + LN + "1. Exit" + LN));
     }
 
     @Test
@@ -169,11 +164,8 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. Find Item by Id"
-                + System.lineSeparator() + "1. Exit" + System.lineSeparator() + "=== Find Item by Id ===="
-                + System.lineSeparator() + "Заявка с таким id не найдена" + System.lineSeparator() + "Menu."
-                + System.lineSeparator() + "0. Find Item by Id" + System.lineSeparator() + "1. Exit"
-                + System.lineSeparator()
-        ));
+        assertThat(out.toString(), is("Menu." + LN + "0. Find Item by Id"
+                + LN + "1. Exit" + LN + "=== Find Item by Id ====" + LN + "Заявка с таким id не найдена"
+                + LN + "Menu." + LN + "0. Find Item by Id" + LN + "1. Exit" + LN));
     }
 }
