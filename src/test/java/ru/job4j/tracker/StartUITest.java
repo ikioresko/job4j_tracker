@@ -6,7 +6,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class StartUITest {
+public class StartUITest {/*
     private static final String LN = System.lineSeparator();
 
     @Test
@@ -187,5 +187,5 @@ public class StartUITest {
                                 + "0. Exit%n"
                 )
         ));
-    }
+    }*/
 }
