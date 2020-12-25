@@ -53,7 +53,11 @@ public class Tracker {
     }
 
     public boolean delete(int id) {
-        items.remove(indexOf(id));
+        int distPos = indexOf(id);
+        if (distPos == -1) {
+            return false;
+        }
+        items.remove(distPos);
         return true;
     }
 }
