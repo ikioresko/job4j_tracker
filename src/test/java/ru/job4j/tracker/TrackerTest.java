@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
-  /*  @Test
+    @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
         Item item = new Item();
@@ -23,9 +23,9 @@ public class TrackerTest {
         tracker.add(new Item("test"));
         tracker.add(new Item("test2"));
         tracker.add(new Item("test3"));
-        assertThat(items[0].getName(), is(tracker.findAll()[0].getName()));
-        assertThat(items[1].getName(), is(tracker.findAll()[1].getName()));
-        assertThat(items[2].getName(), is(tracker.findAll()[2].getName()));
+        assertThat(items[0].getName(), is(tracker.findAll().get(0).getName()));
+        assertThat(items[1].getName(), is(tracker.findAll().get(1).getName()));
+        assertThat(items[2].getName(), is(tracker.findAll().get(2).getName()));
     }
 
     @Test
@@ -36,8 +36,8 @@ public class TrackerTest {
         tracker.add(new Item("test2"));
         tracker.add(new Item("test3"));
         tracker.add(new Item("test"));
-        assertThat(items[0].getName(), is(tracker.findByName("test")[0].getName()));
-        assertThat(items[0].getName(), is(tracker.findByName("test")[1].getName()));
+        assertThat(items[0].getName(), is(tracker.findByName("test").get(0).getName()));
+        assertThat(items[1].getName(), is(tracker.findByName("test2").get(0).getName()));
     }
 
     @Test
@@ -62,5 +62,5 @@ public class TrackerTest {
         int id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
-    }*/
+    }
 }
