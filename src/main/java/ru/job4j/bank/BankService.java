@@ -35,10 +35,9 @@ public class BankService {
         User findUserByPass = findByPassport(passport);
         if (findUserByPass != null) {
             List <Account> acclist = users.get(findUserByPass);
-            for (Object k : acclist) {
-                Account account = (Account) k;
-                if (account.getRequisite().equals(requisite)) {
-                    return account;
+            for (Account acc : acclist) {
+                if (acc.getRequisite().equals(requisite)) {
+                    return acc;
                 }
             }
         }
