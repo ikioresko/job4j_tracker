@@ -13,10 +13,10 @@ import java.util.List;
                     new Job("Fix bu", 2),
                     new Job("X task", 0)
             );
-            Collections.sort(jobs, new JobDescByName().thenComparing(new JobDescByPriority()));
+            Collections.sort(jobs, new JobAscByName().thenComparing(new JobAscByPriority()));
             System.out.println(jobs);
-            Comparator<Job> comb = new JobDescByName()
-                    .thenComparing(new JobDescByPriority())
+            Comparator<Job> comb = new JobAscByName()
+                    .thenComparing(new JobAscByPriority())
                     .thenComparing(new JobDescByNameLn());
             Collections.sort(jobs, comb);
             System.out.println(jobs);
