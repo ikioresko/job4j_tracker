@@ -6,10 +6,12 @@ public class FindByIdAction implements UserAction {
     public  FindByIdAction(Output out) {
         this.out = out;
     }
+
     @Override
     public String name() {
         return "Find Item by Id";
     }
+
     @Override
     public boolean execute(Input input, Tracker tracker) {
         out.println("=== Find Item by Id ====");

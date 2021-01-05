@@ -17,12 +17,13 @@ public class Tracker {
         return items;
     }
 
-    public List<Item> findByName(String key){
+    public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<>();
-        for (Item it : items)
-            if (it.getName().contains(key)){
+        for (Item it : items) {
+            if (it.getName().contains(key)) {
                 result.add(it);
             }
+        }
         return result;
     }
 

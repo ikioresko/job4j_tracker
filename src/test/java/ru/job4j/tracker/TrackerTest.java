@@ -72,9 +72,9 @@ public class TrackerTest {
     @Test
     public void whenSortFromBigToSmall() {
         List<Item> expected = new ArrayList<Item>();
-        expected.add (new Item(3, "test3"));
-        expected.add (new Item(2,"test2"));
-        expected.add (new Item(1,"test1"));
+        expected.add(new Item(3, "test3"));
+        expected.add(new Item(2, "test2"));
+        expected.add(new Item(1, "test1"));
         Tracker tracker = new Tracker();
         tracker.add(new Item("test1"));
         tracker.add(new Item("test2"));
@@ -87,9 +87,9 @@ public class TrackerTest {
     @Test
     public void whenSortFromSmallToBig() {
         List<Item> sorted = new ArrayList<Item>();
-        sorted.add (new Item(3, "test3"));
-        sorted.add (new Item(2,"test2"));
-        sorted.add (new Item(1,"test1"));
+        sorted.add(new Item(3, "test3"));
+        sorted.add(new Item(2, "test2"));
+        sorted.add(new Item(1, "test1"));
         Tracker tracker = new Tracker();
         tracker.add(new Item("test1"));
         tracker.add(new Item("test2"));

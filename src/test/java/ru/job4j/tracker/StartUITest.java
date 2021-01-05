@@ -5,20 +5,17 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class StartUITest {
     private static final String LN = System.lineSeparator();
 
     @Test
     public void whenCreateItem() {
         Output out = new StubOutput();
-        Input in = new StubInput(new String[] {"0", "TestName", "1"}   );
+        Input in = new StubInput(new String[] {"0", "TestName", "1"});
         Tracker tracker = new Tracker();
-
         List<UserAction> actions = new ArrayList<>();
         actions.add(new CreateAction(out));
         actions.add(new ExitAction(out));
-
         new StartUI(out).init(in, tracker, actions);
         Assert.assertEquals("TestName", tracker.findAll().get(0).getName());
     }
@@ -93,7 +90,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Deleted item"));
         String it = String.valueOf(item.getId());
         Input in = new StubInput(
-                new String[] {"0",it , "1"}
+                new String[] {"0", it, "1"}
         );
         List<UserAction> actions = new ArrayList<>();
         actions.add(new DeleteAction(out));
@@ -120,7 +117,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Input in = new StubInput(
-                new String[] {"0","1"}
+                new String[] {"0", "1"}
         );
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ShowAllAction(out));
@@ -145,7 +142,8 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         Assert.assertEquals("Menu." + LN + "0. Find Items by name"
                 + LN + "1. Exit" + LN + "=== Find Items by name ===="
-                + LN + "Menu." + LN + "0. Find Items by name" + LN + "1. Exit" + LN, out.toString());
+                + LN + "Menu." + LN + "0. Find Items by name" + LN
+                + "1. Exit" + LN, out.toString());
     }
 
     @Test
@@ -161,16 +159,15 @@ public class StartUITest {
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         Assert.assertEquals("Menu." + LN + "0. Find Item by Id"
-                + LN + "1. Exit" + LN + "=== Find Item by Id ====" + LN + "Заявка с таким id не найдена"
-                + LN + "Menu." + LN + "0. Find Item by Id" + LN + "1. Exit" + LN, out.toString());
+                + LN + "1. Exit" + LN + "=== Find Item by Id ====" + LN
+                + "Заявка с таким id не найдена" + LN + "Menu." + LN
+                + "0. Find Item by Id" + LN + "1. Exit" + LN, out.toString());
     }
 
     @Test
     public void whenInvalidExit() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] { "1", "0"}
-        );
+        Input in = new StubInput(new String[]{"1", "0"});
         Tracker tracker = new Tracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction(out));
