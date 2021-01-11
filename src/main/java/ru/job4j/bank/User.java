@@ -2,6 +2,12 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс содержит в себе шаблон с полями для создания объекта User.
+ * Поля инкапсулированы, методы equals и hashCode перезаписаны.
+ * @author IGOR KIORESKO
+ * @version 1.0
+ */
 public class User {
     private String passport;
     private String username;
