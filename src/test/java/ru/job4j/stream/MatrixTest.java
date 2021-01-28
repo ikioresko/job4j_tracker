@@ -19,7 +19,7 @@ public class MatrixTest {
 
     @Test
     public void testSortSecond() {
-        Integer[][] array = {{1, 2,}, {3, 4}, {5, 6}};
+        Integer[][] array = {{1, 2}, {3, 4}, {5, 6}};
         List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6);
         Matrix m = new Matrix();
         List<Integer> actual = m.sort(array);
