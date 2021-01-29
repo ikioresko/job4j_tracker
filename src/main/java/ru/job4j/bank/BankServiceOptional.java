@@ -49,14 +49,16 @@ public class BankServiceOptional {
      * пользоваель c таким паспортом не существует.
      */
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
+        Optional<User> rsl = users.keySet()
+                .stream()
+                .filter(e -> e.getPassport().equals(passport))
+                .findFirst();
+        if (rsl.isPresent()) {
+            return rsl;
+        } else {
+            rsl = Optional.empty();
+            return rsl;
         }
-        return rsl;
     }
 
     /**
@@ -72,12 +74,12 @@ public class BankServiceOptional {
         Optional<Account> rsl = Optional.empty();
         if (findByPassport(passport).isPresent()) {
             User findUserByPass = findByPassport(passport).get();
-            List<Account> acclist = users.get(findUserByPass);
-            for (Account acc : acclist) {
-                if (acc.getRequisite().equals(requisite)) {
-                    rsl = Optional.of(acc);
-                    break;
-                }
+            Optional<Account> user = users.get(findUserByPass)
+                    .stream()
+                    .filter(acc -> acc.getRequisite().equals(requisite))
+                    .findFirst();
+            if (user.isPresent()) {
+                rsl = user;
             }
         }
         return rsl;
