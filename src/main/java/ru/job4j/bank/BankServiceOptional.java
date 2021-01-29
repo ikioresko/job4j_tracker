@@ -101,7 +101,7 @@ public class BankServiceOptional {
         Optional<Account> destAcc = findByRequisite(destPassport, destRequisite);
         if (srcAcc.isPresent()
                 && destAcc.isPresent()
-                && amount > srcAcc.get().getBalance()) {
+                && amount <= srcAcc.get().getBalance()) {
             srcAcc.get().setBalance(srcAcc.get().getBalance() - amount);
             destAcc.get().setBalance(destAcc.get().getBalance() + amount);
             return true;
