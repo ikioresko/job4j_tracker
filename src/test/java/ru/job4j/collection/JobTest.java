@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 
 import static org.hamcrest.Matchers.lessThan;
@@ -58,9 +59,7 @@ public class JobTest {
 
     @Test
     public void whenCompatorByPriority() {
-        List<Job> exp = new ArrayList<Job>();
-        exp.add(new Job("Impl task", 0));
-        exp.add(new Job("Fix bug", 1));
+        List<Job> exp = List.of(new Job("Impl task", 0), new Job("Fix bug", 1));
         List<Job> cmpNamePriority = new ArrayList<Job>();
         cmpNamePriority.add(new Job("Impl task", 0));
         cmpNamePriority.add(new Job("Fix bug", 1));
@@ -70,9 +69,7 @@ public class JobTest {
 
     @Test
     public void whenCompatorByPriorityReverse() {
-        List<Job> exp = new ArrayList<Job>();
-        exp.add(new Job("Fix bug", 1));
-        exp.add(new Job("Impl task", 0));
+        List<Job> exp = List.of(new Job("Fix bug", 1), new Job("Impl task", 0));
         List<Job> cmpNamePriority = new ArrayList<Job>();
         cmpNamePriority.add(new Job("Impl task", 0));
         cmpNamePriority.add(new Job("Fix bug", 1));
@@ -82,9 +79,7 @@ public class JobTest {
 
     @Test
     public void whenCompatorByName() {
-        List<Job> exp = new ArrayList<Job>();
-        exp.add(new Job("Fix bug", 1));
-        exp.add(new Job("Impl task", 0));
+        List<Job> exp = List.of(new Job("Fix bug", 1), new Job("Impl task", 0));
         List<Job> cmpName = new ArrayList<Job>();
         cmpName.add(new Job("Impl task", 0));
         cmpName.add(new Job("Fix bug", 1));
@@ -94,9 +89,7 @@ public class JobTest {
 
     @Test
     public void whenCompatorByNameReverse() {
-        List<Job> exp = new ArrayList<Job>();
-        exp.add(new Job("Impl task", 10));
-        exp.add(new Job("Fix bug", 1));
+        List<Job> exp = List.of(new Job("Impl task", 10), new Job("Fix bug", 1));
         List<Job> cmpName = new ArrayList<Job>();
         cmpName.add(new Job("Impl task", 10));
         cmpName.add(new Job("Fix bug", 1));
