@@ -3,8 +3,8 @@ package ru.job4j.stream;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
+
 import java.util.List;
 
 public class AnalyzeTest {
@@ -52,10 +52,10 @@ public class AnalyzeTest {
                         new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 60)))
                 ).stream()
         );
-        assertThat(average, Matchers.containsInAnyOrder(List.of(
+        assertThat(average, is(List.of(
                 new Tuple("Math", 80D),
                 new Tuple("Lang", 80D)
-        ).toArray()));
+        )));
     }
 
     @Test

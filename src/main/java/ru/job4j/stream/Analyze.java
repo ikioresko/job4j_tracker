@@ -23,10 +23,10 @@ public class Analyze {
     }
 
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
-        return (stream
+        return stream
                 .flatMap(s -> s.getSubjects().stream())
-                .collect(Collectors.groupingBy(Subject::getName
-                        , Collectors.averagingDouble(Subject::getScore))))
+                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new
+                        , Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
                 .map(t -> new Tuple(t.getKey(), t.getValue()))
@@ -39,40 +39,19 @@ public class Analyze {
                 .stream()
                 .mapToInt(Subject::getScore)
                 .sum()))
-                .max((a, b) -> (int) (a.getScore() - (b.getScore())))
+                .max(Comparator.comparingDouble(Tuple::getScore))
                 .orElse(null);
     }
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
-        return (stream
+        return stream
                 .flatMap(s -> s.getSubjects().stream())
-                .collect(Collectors.groupingBy(Subject::getName
-                        , Collectors.summingDouble(Subject::getScore))))
+                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new
+                        , Collectors.summingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
                 .map(t -> new Tuple(t.getKey(), t.getValue()))
-                .max((a, b) -> (int) (a.getScore() - (b.getScore())))
+                .max(Comparator.comparingDouble(Tuple::getScore))
                 .orElse(null);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
