@@ -18,7 +18,6 @@ public class FreezeStr {
         for (String s2 : dubl) {
             hashMap2.put(i++, s2);
         }
-        return hashMap.entrySet().stream()
-                .allMatch(e -> e.getValue().equals(hashMap2.get(e.getKey())));
+        return hashMap.equals(hashMap2);
     }
 }
