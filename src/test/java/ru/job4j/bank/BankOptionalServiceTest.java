@@ -32,8 +32,10 @@ public class BankOptionalServiceTest {
         BankServiceOptional bank = new BankServiceOptional();
         bank.addUser(user);
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
-        assertThat(bank.findByRequisite("3434"
-                , "5546").get().getBalance(), is(150D));
+        assertThat(bank
+                .findByRequisite("3434", "5546")
+                .get()
+                .getBalance(), is(150D));
     }
 
     @Test
@@ -44,8 +46,10 @@ public class BankOptionalServiceTest {
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
         bank.addAccount(user.getPassport(), new Account("113", 50D));
         bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 150D);
-        assertThat(bank.findByRequisite(user.getPassport()
-                , "113").get().getBalance(), is(200D));
+        assertThat(bank
+                .findByRequisite(user.getPassport(), "113")
+                .get()
+                .getBalance(), is(200D));
     }
 
     @Test
@@ -55,8 +59,10 @@ public class BankOptionalServiceTest {
         bank.addUser(user);
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
         bank.addAccount(user.getPassport(), new Account("113", 50D));
-        boolean expected = bank.transferMoney(user.getPassport(), "5546"
-                , user.getPassport(), "1123", 150D);
+        boolean expected = bank
+                .transferMoney(user
+                        .getPassport(), "5546", user
+                        .getPassport(), "1123", 150D);
         assertThat(expected, is(false));
     }
 }

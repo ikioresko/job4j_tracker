@@ -66,14 +66,11 @@ public class BankServiceOptional {
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<Account> rsl = Optional.empty();
-        Optional <User> findUserByPass = findByPassport(passport);
-        if (findUserByPass.isPresent()) {
-            return users.get(findUserByPass.get())
-                    .stream()
-                    .filter(acc -> acc.getRequisite().equals(requisite))
-                    .findFirst();
-        }
-        return rsl;
+        Optional<User> findUserByPass = findByPassport(passport);
+        return findUserByPass.map(user -> users.get(user)
+                .stream()
+                .filter(acc -> acc.getRequisite().equals(requisite))
+                .findFirst()).orElse(rsl);
     }
 
     /**
@@ -112,8 +109,6 @@ public class BankServiceOptional {
         bb.addUser(new User("3712", "Tom"));
         bb.addAccount("3712", new Account("1125s", 0));
         Optional<Account> acc = Optional.ofNullable(bb.findByRequisite("3711", "3fdsbb9"));
-        if (acc.isPresent()) {
-            System.out.println(acc.get().getBalance());
-        }
+        acc.ifPresent(account -> System.out.println(account.getBalance()));
     }
 }

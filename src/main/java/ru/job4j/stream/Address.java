@@ -8,7 +8,6 @@ public class Address {
     private int home;
     private int apartment;
 
-
     public Address(String city, String street, int home, int apartment) {
         this.city = city;
         this.street = street;
@@ -18,10 +17,17 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Address address = (Address) o;
-        return home == address.home && apartment == address.apartment && Objects.equals(city, address.city) && Objects.equals(street, address.street);
+        return home == address.home
+                && apartment == address.apartment
+                && Objects.equals(city, address.city)
+                && Objects.equals(street, address.street);
     }
 
     @Override

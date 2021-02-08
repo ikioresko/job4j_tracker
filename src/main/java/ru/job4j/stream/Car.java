@@ -1,32 +1,31 @@
 package ru.job4j.stream;
 
 public class Car {
-    String model;
-    String color;
-    double engine;
-    double fuelTank;
-    int door;
-    int wheelsInch;
+    private String model;
+    private String color;
+    private double engine;
+    private double fuelTank;
+    private int door;
+    private int wheelsInch;
 
     @Override
     public String toString() {
-        return "Car{" +
-                "model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", engine=" + engine +
-                ", fuelTank=" + fuelTank +
-                ", door=" + door +
-                ", wheelsInch=" + wheelsInch +
-                '}';
+        return "Car{"
+                + "model='" + model + '\''
+                + ", color='" + color + '\''
+                + ", engine=" + engine
+                + ", fuelTank=" + fuelTank
+                + ", door=" + door
+                + ", wheelsInch=" + wheelsInch + '}';
     }
-
+    
     static class Builder {
-        String model;
-        String color;
-        double engine;
-        double fuelTank;
-        int door;
-        int wheelsInch;
+        private String model;
+        private String color;
+        private double engine;
+        private double fuelTank;
+        private int door;
+        private int wheelsInch;
 
         Builder buildModel(String model) {
             this.model = model;
