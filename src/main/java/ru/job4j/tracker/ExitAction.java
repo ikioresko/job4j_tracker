@@ -12,7 +12,7 @@ public class ExitAction implements UserAction {
         return "Exit";
     }
 
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         return false;
     }
 }

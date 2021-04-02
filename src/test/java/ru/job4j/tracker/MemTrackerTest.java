@@ -10,10 +10,10 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-public class TrackerTest {
+public class MemTrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item item = new Item();
         item.setName("test1");
         tracker.add(item);
@@ -23,7 +23,7 @@ public class TrackerTest {
 
     @Test
     public void whenFindAll() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item[] items = {new Item("test"), new Item("test2"), new Item("test3")};
         tracker.add(new Item("test"));
         tracker.add(new Item("test2"));
@@ -35,7 +35,7 @@ public class TrackerTest {
 
     @Test
     public void whenFindByName() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item[] items = {new Item("test"), new Item("test2"), new Item("test3")};
         tracker.add(new Item("test"));
         tracker.add(new Item("test2"));
@@ -47,7 +47,7 @@ public class TrackerTest {
 
     @Test
     public void whenReplace() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
@@ -60,7 +60,7 @@ public class TrackerTest {
 
     @Test
     public void whenDelete() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
@@ -75,7 +75,7 @@ public class TrackerTest {
         expected.add(new Item(3, "test3"));
         expected.add(new Item(2, "test2"));
         expected.add(new Item(1, "test1"));
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         tracker.add(new Item("test1"));
         tracker.add(new Item("test2"));
         tracker.add(new Item("test3"));
@@ -90,7 +90,7 @@ public class TrackerTest {
         sorted.add(new Item(3, "test3"));
         sorted.add(new Item(2, "test2"));
         sorted.add(new Item(1, "test1"));
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         tracker.add(new Item("test1"));
         tracker.add(new Item("test2"));
         tracker.add(new Item("test3"));

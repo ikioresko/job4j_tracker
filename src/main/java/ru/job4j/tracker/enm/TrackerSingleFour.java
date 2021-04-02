@@ -1,20 +1,20 @@
 package ru.job4j.tracker.enm;
 
-import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.MemTracker;
 
 public class TrackerSingleFour {
     private TrackerSingleFour() {
     }
 
-    public static Tracker getInstance() {
+    public static MemTracker getInstance() {
         return Holder.INSTANCE;
     }
 
     private static final class Holder {
-        private static final Tracker INSTANCE = new Tracker();
+        private static final MemTracker INSTANCE = new MemTracker();
     }
 
     public static void main(String[] args) {
-        Tracker tracker = TrackerSingleFour.getInstance();
+        MemTracker tracker = TrackerSingleFour.getInstance();
     }
 }

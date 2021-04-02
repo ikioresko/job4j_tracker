@@ -1,16 +1,16 @@
 package ru.job4j.tracker.enm;
 
-import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.MemTracker;
 
 public enum TrackerSingleOne {
     INSTANCE;
-    private static Tracker tracker = new Tracker();
+    private static MemTracker tracker = new MemTracker();
 
-    public static Tracker getTracker() {
+    public static MemTracker getTracker() {
         return tracker;
     }
 
     public static void main(String[] args) {
-        Tracker tracker = INSTANCE.getTracker();
+        MemTracker tracker = INSTANCE.getTracker();
     }
 }
