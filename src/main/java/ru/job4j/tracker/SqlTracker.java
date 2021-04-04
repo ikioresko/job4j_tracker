@@ -6,9 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class SqlTracker implements Store {
+public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
 
+    public SqlTracker(Connection cn) {
+        this.cn = cn;
+    }
+
+    public SqlTracker() {
+        init();
+    }
+
+    @Override
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream(
                 "app.properties")) {
@@ -121,7 +130,7 @@ public class SqlTracker implements Store {
 
     @Override
     public Item findById(int id) {
-        Item it = new Item();
+        Item it = null;
         try (PreparedStatement statement = cn.prepareStatement(
                 "select * from items where id = ?")) {
             statement.setInt(1, id);

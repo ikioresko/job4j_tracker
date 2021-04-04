@@ -7,7 +7,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Store tracker, UserAction[] actions) throws Exception {
+    public void init(Input input, Store tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
@@ -19,7 +19,6 @@ public class StartUI {
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
-        tracker.close();
     }
 
     private void showMenu(UserAction[] actions) {
@@ -33,7 +32,6 @@ public class StartUI {
     public static void main(String[] args) {
         Input validate = new ValidateInput(new ConsoleOutput(), new ConsoleInput());
         try (Store tracker = new SqlTracker()) {
-            tracker.init();
             UserAction[] actions = {
                     new CreateAction(new ConsoleOutput()),
                     new ShowAllAction(new ConsoleOutput()),
