@@ -1,0 +1,77 @@
+Анализ проведен инструментом jconsole
+По результатам мы можем увидеть:
+VM Summary
+четверг, 15 апреля 2021 г., 13:18:54 Екатеринбург, стандартное время
+ 
+Connection name: 
+pid: 9728 ru.job4j.tracker.StartUI // PID приложения
+Virtual Machine: 
+Java HotSpot(TM) 64-Bit Server VM version 15+36-1562 // Версия VM
+Vendor: 
+Oracle Corporation
+Name: 
+9728@DESKTOP-3M1SOVR
+Uptime: 
+2 hours 34 minutes  	// Продолжительность работы приложения
+Process CPU time: 
+2,125 seconds 			// Общее количество процессорного времени, израсходованного виртуальной машиной Java с момента ее запуска
+JIT compiler: 
+HotSpot 64-Bit Tiered Compilers
+Total compile time: 
+0,979 seconds  			// Общее накопленное время, потраченное на JIT-компиляцию. 
+ 
+Live threads: 
+15
+Peak: 
+15
+Daemon threads:			// Daemon потоки: текущее количество живых потоков демона.
+14
+Total threads started:  // Общее количество запущенных потоков: общее количество потоков, запущенных с момента запуска JVM,
+15							включая Daemon, nondaemon и завершенные потоки.
+Current classes loaded: 
+2 581					// Количество классов, загруженных в память в настоящий момент
+Total classes loaded: 
+2 719					// Количество классов, загруженных в память всего
+Total classes unloaded: 
+  138					// Количество классов выгружено
+
+
+ 
+Current heap size: 
+3 730 kbytes			// Текущий размер кучи: количество килобайт, в настоящее время занятых кучей.
+Maximum heap size: 
+6 144 kbytes			// Максимальный размер кучи
+Committed memory: 
+6 144 kbytes			// Выделенная память: общий объем памяти, выделенной для использования кучей
+Pending finalization: 
+0 objects				// Объекты, ожидающие завершения: количество объектов, ожидающих завершения.
+Garbage collector: 
+Name = 'G1 Young Generation', Collections = 19, Total time spent = 0,027 seconds 	// Информация о сборщике мусора включая имена сборщиков мусора,
+Garbage collector: 																	// количество выполненных сборок и общее время, 
+Name = 'G1 Old Generation', Collections = 4, Total time spent = 0,056 seconds		// затраченное на выполнение сборки мусора.
+ 
+Operating System: // Информация о ПК
+Windows 10 10.0
+Architecture: 
+amd64
+Number of processors: 
+12
+Committed virtual memory:  // Выделенная виртуальная память: объем виртуальной памяти, гарантированно доступный для запущенного процесса.
+103 196 kbytes
+Total physical memory: 
+16 119 108 kbytes
+Free physical memory: 
+ 8 990 536 kbytes
+Total swap space: 
+21 361 988 kbytes
+Free swap space: 
+ 8 499 088 kbytes
+ 
+VM arguments:  	// Аргументы виртуальной машины: входные аргументы, которые приложение передало виртуальной машине Java, не включая аргументы основного метода.
+-Xms5m -Xmx5m -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\lib\idea_rt.jar=52845:C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\bin -Dfile.encoding=UTF-8 
+Class path: 	// Путь к классу
+C:\projects\job4j_tracker\target\classes;C:\Users\Acer\.m2\repository\org\postgresql\postgresql\42.2.19\postgresql-42.2.19.jar;C:\Users\Acer\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar
+Library path:  	// Путь к библиотеке
+C:\Program Files\Java\jdk-15\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oracle\dbhomeXE\bin;"C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-15\bin;C:\Tools\apache-maven-3.6.3\bin;";C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk-15\bin;C:\Program Files\Java\jdk-15;C:\Program Files\Git\cmd;C:\Tools\apache-maven-3.6.3\bin;C:\Program Files\PostgreSQL\13\bin;;.
+Boot class path: // Путь к загрузочному классу:
+Unavailable
